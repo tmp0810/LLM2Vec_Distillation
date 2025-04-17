@@ -300,7 +300,6 @@ class DSKD_CMA_ATT_MINED_CKA(VariousDivergence):
             return att_loss_total
 
         att_loss_total_1 = compute_att_loss_1(teacher_model, model,input_data, 3) # define lại batches 
-        print("att_loss_total_1:", att_loss_total_1)
             
         def compute_att_loss_2(teacher_model, student_model, input_data, k):
             att_loss_total = 0.0
@@ -415,7 +414,7 @@ class DSKD_CMA_ATT_MINED_CKA(VariousDivergence):
         print("att_loss_total_2:", att_loss_total_2)
         print("dskd_cma_loss:", kd_loss)
         # Combine losses
-        loss = (1.0 - self.kd_rate) * loss_ce + self.kd_rate * (kd_loss + 0.01*att_loss_total_1 + att_loss_total_2) # Hàm loss cuối cùng
+        loss = (1.0 - self.kd_rate) * loss_ce + self.kd_rate * (kd_loss + att_loss_total_1 + 0.1*att_loss_total_2) # Hàm loss cuối cùng
         log["loss"] = loss
 
         accuracy = self.compute_accuracy(
