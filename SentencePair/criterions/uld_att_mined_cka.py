@@ -413,7 +413,7 @@ class ULD_ATT_MINED_CKA(CrossEntropyLoss):
         )
         print("uld_loss:", kd_loss)
 
-        loss = (1.0 - self.kd_rate) * loss_ce + self.kd_rate * (kd_loss + 0.01*att_loss_total_1 + att_loss_total_2) # Hàm loss cuối cùng
+        loss = (1.0 - self.kd_rate) * loss_ce + self.kd_rate * (kd_loss + att_loss_total_1 + 0.1*att_loss_total_2) # Hàm loss cuối cùng
         log["loss"] = loss
 
         accuracy = self.compute_accuracy(
