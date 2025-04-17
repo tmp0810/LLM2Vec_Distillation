@@ -2,5 +2,5 @@ scikit-learn
 scipy
 matplotlib
 deepspeed==0.16.5
-peft==0.15.1
+peft==0.14.0
 editdistance==0.8.1
