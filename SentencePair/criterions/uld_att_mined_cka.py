@@ -297,7 +297,7 @@ class ULD_ATT_MINED_CKA(CrossEntropyLoss):
 
             return att_loss_total
 
-        att_loss_total_1 = compute_att_loss_1(teacher_model, model,input_data, 3) # define lại batches 
+        att_loss_total_1 = compute_att_loss_1(teacher_model, model,input_data, 6) # define lại batches 
         
             
         def compute_att_loss_2(teacher_model, student_model, input_data, k):
@@ -391,7 +391,7 @@ class ULD_ATT_MINED_CKA(CrossEntropyLoss):
 
             return att_loss_total
     
-        att_loss_total_2 = compute_att_loss_2(teacher_model, model, input_data, 3)
+        att_loss_total_2 = compute_att_loss_2(teacher_model, model, input_data, 6)
         print("att_loss_total_1:", att_loss_total_1)
         print("att_loss_total_2:", att_loss_total_2)
 
