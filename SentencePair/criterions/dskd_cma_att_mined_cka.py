@@ -411,6 +411,8 @@ class DSKD_CMA_ATT_MINED_CKA(VariousDivergence):
         kd_loss, log = self.compute_dual_space_kd_loss_with_cma(
             outputs, teacher_outputs, input_data, output_data, distiller, log
         )
+        print("att_loss_total_1:", att_loss_total_1)
+        print("att_loss_total_2:", att_loss_total_2)
         print("dskd_cma_loss:", kd_loss)
         # Combine losses
         loss = (1.0 - self.kd_rate) * loss_ce + self.kd_rate * (kd_loss + 0.01*att_loss_total_1 + att_loss_total_2) # Hàm loss cuối cùng
